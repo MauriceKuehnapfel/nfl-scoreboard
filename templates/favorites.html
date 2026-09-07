@@ -30,8 +30,13 @@
 		</nav>
 		<section class="hero">
 			<div class="container">
-				<h1>NFL Scoreboard</h1>
-				<p>Welcome to the NFL Scoreboard!</p>
+				<h1>My Favourite Teams</h1>
+
+				{% if favorite_teams %}
+				<p>Your teams: {{ favorite_teams | join(", ") }}</p>
+				{% else %}
+				<p>No favourites selected yet. Choose stars on the Games page.</p>
+				{% endif %}
 			</div>
 		</section>
 
@@ -78,6 +83,19 @@
 					</div>
 					{% endfor %}
 				</div>
+			</div>
+		</section>
+		<section id="my-favourite-teams">
+			<div class="container">
+				<h2>My Favourite Teams</h2>
+				<p>Here are your favourite teams:</p>
+				<ul>
+					{% for team in favorite_teams %}
+					<li>{{ team }}</li>
+					{% else %}
+					<li>No favourite teams selected.</li>
+					{% endfor %}
+				</ul>
 			</div>
 		</section>
 	</body>
