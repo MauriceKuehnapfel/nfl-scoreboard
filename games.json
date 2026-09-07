@@ -1,37 +1,130 @@
 [
-	{
-		"home": "Kansas City Chiefs",
-		"away": "San Francisco 49ers",
-		"home_score": 0,
-		"away_score": 0,
-		"status": "Live",
-		"start_time": "2024-09-05 Time 19:20:00"
-	},
-
-	{
-		"home": "Jacksonville Jaguars",
-		"away": "Philadelphia Eagles",
-		"home_score": 0,
-		"away_score": 0,
-		"status": "Scheduled",
-		"start_time": "2024-09-05 Time 20:20:00"
-	},
-
-	{
-		"home": "Green Bay Packers",
-		"away": "Chicago Bears",
-		"home_score": 0,
-		"away_score": 0,
-		"status": "Scheduled",
-		"start_time": "2024-09-06 Time 18:00:00"
-	},
-
-	{
-		"home": "Miami Dolphins",
-		"away": "New England Patriots",
-		"home_score": 0,
-		"away_score": 0,
-		"status": "Scheduled",
-		"start_time": "2024-09-06 Time 21:00:00"
-	}
+    {
+        "home": "Kansas City Chiefs",
+        "away": "Baltimore Ravens",
+        "home_score": 27,
+        "away_score": 20,
+        "status": "Finished",
+        "start_time": "2024-09-06 00:40 UTC"
+    },
+    {
+        "home": "Philadelphia Eagles",
+        "away": "Green Bay Packers",
+        "home_score": 34,
+        "away_score": 29,
+        "status": "Finished",
+        "start_time": "2024-09-07 00:15 UTC"
+    },
+    {
+        "home": "Atlanta Falcons",
+        "away": "Pittsburgh Steelers",
+        "home_score": 10,
+        "away_score": 18,
+        "status": "Finished",
+        "start_time": "2024-09-08 17:00 UTC"
+    },
+    {
+        "home": "Buffalo Bills",
+        "away": "Arizona Cardinals",
+        "home_score": 34,
+        "away_score": 28,
+        "status": "Finished",
+        "start_time": "2024-09-08 17:00 UTC"
+    },
+    {
+        "home": "Chicago Bears",
+        "away": "Tennessee Titans",
+        "home_score": 24,
+        "away_score": 17,
+        "status": "Finished",
+        "start_time": "2024-09-08 17:00 UTC"
+    },
+    {
+        "home": "Cincinnati Bengals",
+        "away": "New England Patriots",
+        "home_score": 10,
+        "away_score": 16,
+        "status": "Finished",
+        "start_time": "2024-09-08 17:00 UTC"
+    },
+    {
+        "home": "Indianapolis Colts",
+        "away": "Houston Texans",
+        "home_score": 27,
+        "away_score": 29,
+        "status": "Finished",
+        "start_time": "2024-09-08 17:00 UTC"
+    },
+    {
+        "home": "Miami Dolphins",
+        "away": "Jacksonville Jaguars",
+        "home_score": 20,
+        "away_score": 17,
+        "status": "Finished",
+        "start_time": "2024-09-08 17:00 UTC"
+    },
+    {
+        "home": "New Orleans Saints",
+        "away": "Carolina Panthers",
+        "home_score": 47,
+        "away_score": 10,
+        "status": "Finished",
+        "start_time": "2024-09-08 17:00 UTC"
+    },
+    {
+        "home": "New York Giants",
+        "away": "Minnesota Vikings",
+        "home_score": 6,
+        "away_score": 28,
+        "status": "Finished",
+        "start_time": "2024-09-08 17:00 UTC"
+    },
+    {
+        "home": "Los Angeles Chargers",
+        "away": "Las Vegas Raiders",
+        "home_score": 22,
+        "away_score": 10,
+        "status": "Finished",
+        "start_time": "2024-09-08 20:05 UTC"
+    },
+    {
+        "home": "Seattle Seahawks",
+        "away": "Denver Broncos",
+        "home_score": 26,
+        "away_score": 20,
+        "status": "Finished",
+        "start_time": "2024-09-08 20:05 UTC"
+    },
+    {
+        "home": "Cleveland Browns",
+        "away": "Dallas Cowboys",
+        "home_score": 17,
+        "away_score": 33,
+        "status": "Finished",
+        "start_time": "2024-09-08 20:25 UTC"
+    },
+    {
+        "home": "Tampa Bay Buccaneers",
+        "away": "Washington Commanders",
+        "home_score": 37,
+        "away_score": 20,
+        "status": "Finished",
+        "start_time": "2024-09-08 20:25 UTC"
+    },
+    {
+        "home": "Detroit Lions",
+        "away": "Los Angeles Rams",
+        "home_score": 26,
+        "away_score": 20,
+        "status": "Final/OT",
+        "start_time": "2024-09-09 00:20 UTC"
+    },
+    {
+        "home": "San Francisco 49ers",
+        "away": "New York Jets",
+        "home_score": 32,
+        "away_score": 19,
+        "status": "Finished",
+        "start_time": "2024-09-10 00:15 UTC"
+    }
 ]

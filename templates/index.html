@@ -11,7 +11,9 @@
 
 		<title>NFL Scoreboard</title>
 	</head>
-
+	<!--! -->
+	<!--! --> 
+	<!--! --> Navbar and hero section
 	<body>
 		<nav class="navbar">
 			<div class="container nav-container">
@@ -34,8 +36,9 @@
 				<p>Welcome to the NFL Scoreboard!</p>
 			</div>
 		</section>
-
-		<section id="game-section">
+		<!--! -->
+		<!--! --> 
+		<!--! --> Game section -->
 			<div class="container">
 				<div class="games-grid">
 					{% for game in games %}
@@ -44,7 +47,7 @@
 							<p>
 								Status:
 								<span
-									class="{% if game.status == 'Live' %}game-status-live{% endif %}"
+									class="{% if game.status == 'Live' %}game-status-live{% elif game.status == 'Finished' %}game-status-finished{% endif %}"
 								>
 									{{ game.status }}
 								</span>

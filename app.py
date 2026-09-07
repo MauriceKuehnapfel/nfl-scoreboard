@@ -1,9 +1,14 @@
-import json
+import json # noqa: I001
+
+from dotenv import load_dotenv
 
 import os
 
-from flask import Flask, render_template, request, redirect, url_for, session
-# Initialize the Flask application
+from flask import Flask, render_template, request, redirect, url_for, session # type: ignore
+
+load_dotenv()
+
+#* Initialize the Flask application
 app = Flask(__name__)
 app.config["SECRET_KEY"] = os.environ["SECRET_KEY"] # Set the secret key for session management
 
@@ -11,7 +16,7 @@ def load_games():
     with open("games.json", "r") as file:
         return json.load(file)
 
-# Function to load games from the JSON file
+#* Function to load games from the JSON file
 def get_all_scores():
     games = load_games()
     if not games:
@@ -30,7 +35,7 @@ def get_all_scores():
         scores.append(score)
     return scores
 
-# Functions for loading and displaying game scores
+#* Functions for loading and displaying game scores
 def display_games(scores):
     if not scores:
         print("No games available")
@@ -38,7 +43,7 @@ def display_games(scores):
     
     for score in scores:
         print(score)
-# Route for the home page
+#* Route for the home page
 @app.route("/")
 def home():
     games = load_games()
@@ -49,7 +54,7 @@ def home():
         games=games,
         favorite_teams=favorite_teams
     )
-# Route to handle setting and unsetting the favorite team
+#* Route to handle setting and unsetting the favorite team
 @app.route("/favorite", methods=["POST"])
 def favorite():
     team = request.form.get("team")
@@ -79,7 +84,7 @@ def main():
     scores = get_all_scores()
     display_games(scores)
 
-# Route for displaying favorite teams and their games
+#* Route for displaying favorite teams and their games
 @app.route("/favorites")
 def favorites():
     favorite_teams = session.get("favorite_teams", [])

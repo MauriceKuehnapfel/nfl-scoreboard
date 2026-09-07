@@ -104,6 +104,11 @@ body {
 	font-weight: bold;
 }
 
+.game-status-finished {
+	color: #22c55e;
+	font-weight: bold;
+}
+
 .game-meta {
 	display: flex;
 	justify-content: space-between;
