@@ -11,7 +11,6 @@
 
 		<title>NFL Scoreboard</title>
 	</head>
-
 	<body>
 		<nav class="navbar">
 			<div class="container nav-container">
@@ -30,10 +29,12 @@
 		</nav>
 		<section class="hero">
 			<div class="container">
-				<h1>My Favourite Teams</h1>
-
+				<h1>Your teams. Your scoreboard</h1>
+				<p>
+					Follow your favourites and find their weekly results in one place.
+				</p>
 				{% if favorite_teams %}
-				<p>Your teams: {{ favorite_teams | join(", ") }}</p>
+				<p>Your teams: <strong>{{ favorite_teams | join(", ") }}</strong></p>
 				{% else %}
 				<p>No favourites selected yet. Choose stars on the Games page.</p>
 				{% endif %}
@@ -42,6 +43,21 @@
 
 		<section id="game-section">
 			<div class="container">
+				<form
+					action="{{ url_for('favorites') }}"
+					method="GET"
+					class="week-filter"
+				>
+					<label for="week">Week:</label>
+
+					<select name="week" id="week" onchange="this.form.submit()">
+						{% for week in weeks %} {% if week == selected_week %}
+						<option value="{{ week }}" selected>{{ week }}</option>
+						{% else %}
+						<option value="{{ week }}">{{ week }}</option>
+						{% endif %} {% endfor %}
+					</select>
+				</form>
 				<div class="games-grid">
 					{% for game in games %}
 					<div class="game-card">
@@ -61,8 +77,22 @@
 						{% for side in ["home", "away"] %}
 						<div class="team-row">
 							<div class="team-info">
-								<form action="{{ url_for('favorite') }}" method="POST">
+								<form
+									action="{{ url_for('favorite') }}"
+									method="POST"
+									class="favorite-form"
+								>
 									<input type="hidden" name="team" value="{{ game[side] }}" />
+									<input
+										type="hidden"
+										name="page"
+										value="{{ request.endpoint }}"
+									/>
+									<input
+										type="hidden"
+										name="week"
+										value="{{ selected_week }}"
+									/>
 
 									<button
 										type="submit"
@@ -85,19 +115,6 @@
 				</div>
 			</div>
 		</section>
-
-		<section id="my-favourite-teams">
-			<div class="container">
-				<h2>My Favourite Teams</h2>
-				<p>Here are your favourite teams:</p>
-				<ul>
-					{% for team in favorite_teams %}
-					<li>{{ team }}</li>
-					{% else %}
-					<li>No favourite teams selected.</li>
-					{% endfor %}
-				</ul>
-			</div>
-		</section>
+		<script src="{{ url_for('static', filename='favorites.js') }}"></script>
 	</body>
 </html>

@@ -11,9 +11,7 @@
 
 		<title>NFL Scoreboard</title>
 	</head>
-	<!--! -->
-	<!--! --> 
-	<!--! --> Navbar and hero section
+
 	<body>
 		<nav class="navbar">
 			<div class="container nav-container">
@@ -32,56 +30,76 @@
 		</nav>
 		<section class="hero">
 			<div class="container">
-				<h1>NFL Scoreboard</h1>
-				<p>Welcome to the NFL Scoreboard!</p>
+				<h1>Every game. Every score</h1>
+				<p>Welcome! Explore the 2024 NFL season, one week at a time.</p>
 			</div>
 		</section>
-		<!--! -->
-		<!--! --> 
-		<!--! --> Game section -->
-			<div class="container">
-				<div class="games-grid">
-					{% for game in games %}
-					<div class="game-card">
-						<div class="game-meta">
-							<p>
-								Status:
-								<span
-									class="{% if game.status == 'Live' %}game-status-live{% elif game.status == 'Finished' %}game-status-finished{% endif %}"
+
+		<div class="container">
+			<form action="{{ url_for('home') }}" method="GET" class="week-filter">
+				<label for="week">Week:</label>
+
+				<select name="week" id="week" onchange="this.form.submit()">
+					{% for week in weeks %} {% if week == selected_week %}
+					<option value="{{ week }}" selected>{{ week }}</option>
+					{% else %}
+					<option value="{{ week }}">{{ week }}</option>
+					{% endif %} {% endfor %}
+				</select>
+			</form>
+
+			<div class="games-grid">
+				{% for game in games %}
+				<div class="game-card">
+					<div class="game-meta">
+						<p>
+							Status:
+							<span
+								class="{% if game.status == 'Live' %}game-status-live{% elif game.status == 'Finished' %}game-status-finished{% endif %}"
+							>
+								{{ game.status }}
+							</span>
+						</p>
+
+						<p>Start Time: {{ game.start_time }}</p>
+					</div>
+
+					{% for side in ["home", "away"] %}
+					<div class="team-row">
+						<div class="team-info">
+							<form
+								action="{{ url_for('favorite') }}"
+								method="POST"
+								class="favorite-form"
+							>
+								<input type="hidden" name="team" value="{{ game[side] }}" />
+								<input
+									type="hidden"
+									name="page"
+									value="{{ request.endpoint }}"
+								/>
+								<input type="hidden" name="week" value="{{ selected_week }}" />
+
+								<button
+									type="submit"
+									class="favorite-button {% if game[side] in favorite_teams %}is-favorite{% endif %}"
+									aria-label="Favourite {{ game[side] }}"
+									aria-pressed="{{ 'true' if game[side] in favorite_teams else 'false' }}"
 								>
-									{{ game.status }}
-								</span>
-							</p>
+									{{ "★" if game[side] in favorite_teams else "☆" }}
+								</button>
+							</form>
 
-							<p>Start Time: {{ game.start_time }}</p>
+							<span class="team-name"> {{ game[side] }} </span>
 						</div>
 
-						{% for side in ["home", "away"] %}
-						<div class="team-row">
-							<div class="team-info">
-								<form action="{{ url_for('favorite') }}" method="POST">
-									<input type="hidden" name="team" value="{{ game[side] }}" />
-
-									<button
-										type="submit"
-										class="favorite-button {% if game[side] in favorite_teams %}is-favorite{% endif %}"
-										aria-label="Favourite {{ game[side] }}"
-										aria-pressed="{{ 'true' if game[side] in favorite_teams else 'false' }}"
-									>
-										{{ "★" if game[side] in favorite_teams else "☆" }}
-									</button>
-								</form>
-
-								<span class="team-name"> {{ game[side] }} </span>
-							</div>
-
-							<span class="team-score"> {{ game[side ~ '_score'] }} </span>
-						</div>
-						{% endfor %}
+						<span class="team-score"> {{ game[side ~ '_score'] }} </span>
 					</div>
 					{% endfor %}
 				</div>
+				{% endfor %}
 			</div>
-		</section>
+		</div>
+		<script src="{{ url_for('static', filename='favorites.js') }}"></script>
 	</body>
 </html>

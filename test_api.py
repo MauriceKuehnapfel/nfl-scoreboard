@@ -1,4 +1,4 @@
-import os
+import os  # noqa: I001
 
 import requests
 
@@ -33,12 +33,10 @@ try:
         games = []
 
         for item in data.get("response", []):
-            if (
-                item["game"]["stage"] != "Regular Season"
-                or item["game"]["week"] != "Week 1"
-            ):
+            if item["game"]["stage"] != "Regular Season":
                 continue
             game = {
+                "week": item["game"]["week"],
                 "home": item["teams"]["home"]["name"],
                 "away": item["teams"]["away"]["name"],
                 "home_score": item["scores"]["home"]["total"],

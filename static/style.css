@@ -85,10 +85,29 @@ body {
 .game-card {
 	background: #161d26;
 	border: 1px solid #2a3441;
-	border-radius: 8px;
-	padding: 20px;
-	margin-bottom: 150px;
+	box-shadow: 0 4px 20px rgba(53, 107, 173, 0.18);
+	border-radius: 20px;
+	padding: 25px;
+	margin-bottom: 60px;
 	font-size: 20px;
+}
+
+.week-filter {
+	display: flex;
+	align-items: center;
+	flex-wrap: wrap;
+	gap: 12px;
+	margin-bottom: 30px;
+	font-size: 20px;
+}
+
+.week-filter select {
+	padding: 9px 12px;
+	background: #161d26;
+	color: #f3f6fa;
+	border: 1px solid #2a3441;
+	border-radius: 8px;
+	font: inherit;
 }
 
 .team-row {
@@ -187,5 +206,31 @@ body {
 
 	.container {
 		padding: 0 20px;
+	}
+
+	.nav-container {
+		flex-direction: column;
+		gap: 16px;
+	}
+
+	.logo-group {
+		gap: 12px;
+		font-size: 20px;
+	}
+
+	.nav-links {
+		width: 100%;
+		justify-content: center;
+		gap: 8px;
+	}
+
+	.nav-link {
+		padding: 8px 10px;
+		font-size: 16px;
+		text-align: center;
+	}
+
+	.navbar {
+		padding: 16px 0;
 	}
 }
