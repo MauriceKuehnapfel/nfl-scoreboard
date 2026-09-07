@@ -1,0 +1,90 @@
+@import url("https://fonts.googleapis.com/css2?family=NTR&display=swap");
+
+html {
+	scroll-behavior: smooth;
+}
+
+body {
+	margin: 0;
+	font-family: "NTR", sans-serif;
+	background: #0b0f14;
+	color: #f3f6fa;
+}
+
+.container {
+	max-width: 1200px;
+	margin: 0 auto;
+	padding: 0 40px;
+}
+
+/** Hero section */
+.hero {
+	padding: 40px 0 20px;
+	display: flex;
+	align-items: center;
+	margin-bottom: 60px;
+}
+
+.hero h1 {
+	margin: 0 0 10px;
+	font-size: 56px;
+}
+
+.hero p {
+	margin: 0;
+	font-size: 20px;
+}
+/** Game cards */
+.game-card {
+	background: #161d26;
+	border: 1px solid #2a3441;
+	border-radius: 8px;
+	padding: 20px;
+	margin-bottom: 20px;
+	font-size: 20px;
+}
+
+.team-row {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 8px 0;
+	font-size: 25px;
+}
+
+.game-status-live {
+	color: #ef4444;
+	font-weight: bold;
+}
+
+.game-meta {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	color: #94a3b8;
+}
+
+.games-grid {
+	display: grid;
+	grid-template-columns: repeat(2, minmax(0, 1fr));
+	gap: 20px;
+}
+
+.team-name {
+	font-weight: bold;
+}
+
+.team-score {
+	font-weight: bold;
+}
+
+/* Responsive adjustments for smaller screens */
+@media (max-width: 700px) {
+	.games-grid {
+		grid-template-columns: 1fr;
+	}
+
+	.container {
+		padding: 0 20px;
+	}
+}

@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<link
+			rel="stylesheet"
+			href="{{ url_for('static', filename='style.css') }}"
+		/>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>NFL Scoreboard</title>
+	</head>
+	<body>
+		<section class="hero">
+			<div class="container">
+				<h1>NFL Scoreboard</h1>
+				<p>Welcome to the NFL Scoreboard!</p>
+			</div>
+		</section>
+
+		<section class="game-section">
+			<div class="container">
+				<div class="games-grid">
+					{% for game in games %}
+
+					<div class="game-card">
+						<div class="game-meta">
+							<p>
+								Status:
+								<span
+									class="{% if game.status == 'Live' %}game-status-live{% endif %}"
+									>{{ game.status }}</span
+								>
+							</p>
+							<p>Start Time: {{ game.start_time }}</p>
+						</div>
+
+						<div class="team-row">
+							<span class="team-name">{{ game.home }}</span>
+							<span class="team-score">{{ game.home_score }}</span>
+						</div>
+
+						<div class="team-row">
+							<span class="team-name">{{ game.away }}</span>
+							<span class="team-score">{{ game.away_score }}</span>
+						</div>
+					</div>
+
+					{% endfor %}
+				</div>
+			</div>
+		</section>
+	</body>
+</html>
