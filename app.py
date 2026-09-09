@@ -92,7 +92,7 @@ def favorite():
     page = request.form.get("page", "home")
     week = request.form.get("week", "Week 1")
 
-    # Only allow redirects to our two scoreboard pages.
+    # Only allow redirects to the two scoreboard pages.
     if page not in ("home", "favorites"):
         page = "home"
 
